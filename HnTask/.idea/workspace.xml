@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b7691db-92b9-45fc-8e2c-d8ea58a5abae" name="Default Changelist" comment="" />
+    <list default="true" id="8b7691db-92b9-45fc-8e2c-d8ea58a5abae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/RwdbApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/RwdbApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/RwdbApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/RwdbApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatis-config.xml" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +30,18 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@47.99.46.85" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,7 +65,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1hgxxyAreWQbR49CZPgEZiwt2eK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,27 +83,28 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../rwdb" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis/dataBase" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.14938489" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IDEA workspace\hnrwdb\src\main\resources\static\js" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.edu" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.edu.zut.hnrwdb.system.controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\mybatis\dataBase" />
       <recent name="D:\IDEA workspace\rwdb\src\main\resources" />
       <recent name="D:\IDEA workspace\hnrwdb\src\main\resources" />
       <recent name="D:\IDEA workspace\hnrwdb\src\main\resources\static\js" />
       <recent name="D:\IDEA workspace\hnrwdb\src\main\resources\templates\page" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.edu.zut.hnrwdb.system.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA workspace\hnrwdb\src\main\resources\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -121,12 +138,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@332d3a2f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a03b2ef" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@332d3a2f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6a13c05e" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a03b2ef" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3860f50f" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -155,7 +172,7 @@
       <workItem from="1601254234033" duration="2491000" />
       <workItem from="1602301827060" duration="808000" />
       <workItem from="1602392772588" duration="4120000" />
-      <workItem from="1602396950517" duration="1043000" />
+      <workItem from="1602396950517" duration="3278000" />
     </task>
     <servers />
   </component>

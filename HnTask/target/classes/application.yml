@@ -12,10 +12,9 @@ spring:
     restart:
       enabled: true
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@47.99.46.85:1521:orcl
-    data-username: sys
+    username: SYSTEM
     password: 123456
 
   mail:
@@ -35,10 +34,10 @@ spring:
       max-request-size: -1
 mybatis:
   typeAliasesPackage: com.edu.zut.rwdb.system.**.domain
-  mapper-locations: classpath:mybatis.*.xml
+  mapper-locations: classpath:mybatis/**/*.xml
   type-aliases-package: com.edu.zut.rwdb.system.**.domain
 pagehelper:
-  helperDialect: mysql
+  helperDialect: oracle
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
