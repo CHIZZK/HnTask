@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>登陆界面</title>
+    <link rel="stylesheet" th:href="@{/css/login/login.css}" media="all">
+    <link rel="stylesheet" th:href="@{/css/login/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/plugins/layui/css/layui.css}" media="all">
+</head>
+<body>
+<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+
+    <div class="layadmin-user-login-main">
+        <div class="layadmin-user-login-box layadmin-user-login-header">
+            <h2>用户中心</h2>
+        </div>
+        <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+            <div class="layui-form-item">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="username"></label>
+                <input type="text" name="username" id="username" lay-verify="required" placeholder="用户名" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="password"></label>
+                <input type="password" name="password" id="password" lay-verify="required" placeholder="密码" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row">
+                    <div class="layui-col-xs7">
+                        <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                        <input type="text" name="vercode" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">
+                    </div>
+                    <div class="layui-col-xs5">
+                        <div style="margin-left: 10px;">
+                            <div class="col-xs-6 pull_left">
+                                <a href="javascript:void(0);" title="点击更换验证码">
+                                    <img id="imgVerify" src="login/getVerify" alt="更换验证码" height="36" width="170" onclick="getVerify(this);">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" id="loginBtn">登 入</button>
+            </div>
+            <div class="layui-trans layui-form-item layadmin-user-login-other">
+                <label>没有帐号，去</label>
+                <a href="/ddcghjpt/registtest"  class="layadmin-link" id="regBtn">注册帐号</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script th:src="@{/plugins/layui/layui.js}"></script>
+<script th:src="@{/js/yhzx/login/login.js}"></script>
+</body>
+</html>
