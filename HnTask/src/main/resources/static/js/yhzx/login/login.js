@@ -62,8 +62,8 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     }
 });
 
-function getVerify() {
+// function getVerify() {
     // $("#imgCode").on("click", function() {
-    $("#imgVerify").attr("src", 'login/getVerify?' + Math.random());//jquery方式
+//     $("#imgVerify").attr("src", 'login/getVerify?' + Math.random());//jquery方式
     // });
-}
+// }
