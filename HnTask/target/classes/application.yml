@@ -60,4 +60,8 @@ shiro:
     validationInterval: 1
     maxSession: -1
     kickoutAfter: false
-
+# 日志配置
+logging:
+  level:
+    com.rwdb: debug
+    org.springframework: warn

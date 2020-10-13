@@ -1,0 +1,49 @@
+19:04:25.738 [restartedMain] INFO  c.e.RwdbApplication - [logStarting,55] - Starting RwdbApplication on LAPTOP-5SPSKAKL with PID 17848 (D:\IDEA workspace\dbkhrw\HnTask\target\classes started by HP in D:\IDEA workspace\dbkhrw\HnTask)
+19:04:25.743 [restartedMain] INFO  c.e.RwdbApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+19:04:27.671 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+19:04:27.672 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:04:27.672 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.38]
+19:04:27.675 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+19:04:27.676 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+19:04:27.676 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+19:04:27.676 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+19:04:27.680 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+19:04:27.898 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:04:28.291 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+19:04:28.461 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-1} inited
+19:04:29.259 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+19:04:29.310 [restartedMain] INFO  c.e.RwdbApplication - [logStarted,61] - Started RwdbApplication in 4.396 seconds (JVM running for 6.066)
+19:04:36.349 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:04:37.176 [http-nio-8080-exec-2] INFO  c.e.z.r.s.c.DatabaseController - [test,28] - info
+19:09:25.398 [Thread-14] INFO  c.a.d.p.DruidDataSource - [close,1928] - {dataSource-1} closed
+19:09:25.575 [restartedMain] INFO  c.e.RwdbApplication - [logStarting,55] - Starting RwdbApplication on LAPTOP-5SPSKAKL with PID 17848 (D:\IDEA workspace\dbkhrw\HnTask\target\classes started by HP in D:\IDEA workspace\dbkhrw\HnTask)
+19:09:25.575 [restartedMain] INFO  c.e.RwdbApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+19:09:26.080 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+19:09:26.085 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:09:26.086 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.38]
+19:09:26.086 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+19:09:26.086 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+19:09:26.086 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+19:09:26.087 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+19:09:26.088 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+19:09:26.194 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:09:26.307 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+19:09:26.626 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-2} inited
+19:09:26.963 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+19:09:26.991 [restartedMain] INFO  c.e.RwdbApplication - [logStarted,61] - Started RwdbApplication in 1.472 seconds (JVM running for 303.767)
+19:10:43.874 [Thread-21] INFO  c.a.d.p.DruidDataSource - [close,1928] - {dataSource-2} closed
+19:10:44.150 [restartedMain] INFO  c.e.RwdbApplication - [logStarting,55] - Starting RwdbApplication on LAPTOP-5SPSKAKL with PID 17848 (D:\IDEA workspace\dbkhrw\HnTask\target\classes started by HP in D:\IDEA workspace\dbkhrw\HnTask)
+19:10:44.150 [restartedMain] INFO  c.e.RwdbApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+19:10:45.020 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+19:10:45.023 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:10:45.025 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.38]
+19:10:45.025 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+19:10:45.025 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+19:10:45.026 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+19:10:45.026 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+19:10:45.026 [restartedMain] INFO  o.a.c.c.AprLifecycleListener - [log,173] - OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+19:10:45.136 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:10:45.352 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+19:10:45.403 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,991] - {dataSource-3} inited
+19:10:45.701 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+19:10:45.714 [restartedMain] INFO  c.e.RwdbApplication - [logStarted,61] - Started RwdbApplication in 1.642 seconds (JVM running for 382.496)

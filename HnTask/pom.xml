@@ -12,6 +12,7 @@
     <artifactId>hnrwdb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hnrwdb</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
