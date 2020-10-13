@@ -10,7 +10,8 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
     var id;
     var tableIns;
     $(document).ready(function () {
-        var datas=[{"id":10000,"username":"user-0","sex":"女","city":"城市-0","sign":"签名-0","experience":255,"logins":24,"wealth":82830700,"classify":"作家","score":57},{"id":10001,"username":"user-1","sex":"男","city":"城市-1","sign":"签名-1","experience":884,"logins":58,"wealth":64928690,"classify":"词人","score":27},{"id":10002,"username":"user-2","sex":"女","city":"城市-2","sign":"签名-2","experience":650,"logins":77,"wealth":6298078,"classify":"酱油","score":31},{"id":10003,"username":"user-3","sex":"女","city":"城市-3","sign":"签名-3","experience":362,"logins":157,"wealth":37117017,"classify":"诗人","score":68},{"id":10004,"username":"user-4","sex":"男","city":"城市-4","sign":"签名-4","experience":807,"logins":51,"wealth":76263262,"classify":"作家","score":6},{"id":10005,"username":"user-5","sex":"女","city":"城市-5","sign":"签名-5","experience":173,"logins":68,"wealth":60344147,"classify":"作家","score":87},{"id":10006,"username":"user-6","sex":"女","city":"城市-6","sign":"签名-6","experience":982,"logins":37,"wealth":57768166,"classify":"作家","score":34},{"id":10007,"username":"user-7","sex":"男","city":"城市-7","sign":"签名-7","experience":727,"logins":150,"wealth":82030578,"classify":"作家","score":28},{"id":10008,"username":"user-8","sex":"男","city":"城市-8","sign":"签名-8","experience":951,"logins":133,"wealth":16503371,"classify":"词人","score":14},{"id":10009,"username":"user-9","sex":"女","city":"城市-9","sign":"签名-9","experience":484,"logins":25,"wealth":86801934,"classify":"词人","score":75}];
+        var datas=[{"id":10000,"yhmc":"sal","xsmc":"孙奥林","sslb":"普通",
+            "zt":"已审批","gldw":"管理单位","dybm":"对应部门"}];
         dataList(datas);
     });
 
@@ -22,16 +23,21 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
             , toolbar: '#toolbar' //开启头部工具栏，并为其绑定左侧模板
             , title: '字典数据表'
             , cols: [[
-                {field:'id', width:80, title: 'ID', sort: true}
-                ,{field:'username', width:80, title: '用户名'}
-                ,{field:'sex', width:80, title: '性别', sort: true}
-                ,{field:'city', width:80, title: '城市'}
-                ,{field:'sign', title: '签名', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                ,{field:'experience', title: '积分', sort: true}
-                ,{field:'score', title: '评分', sort: true}
-                ,{field:'classify', title: '职业'}
-                ,{field:'wealth', width:137, title: '财富', sort: true}
+                 {field:'id', title: 'ID', hide: true}
+                ,{type: 'checkbox', fixed: 'left'}
+                ,{title: '序号', fixed: 'left', unresize: true, align: 'center', type: 'numbers'}
+                ,{field:'yhmc', title: '登录名称'}
+                ,{field:'xsmc', title: '显示名称'}
+                ,{field:'sslb', title: '所属类别'}
+                ,{field:'email', title: 'E-mail'}
+                ,{field:'tel', title: '手机号'}
+                ,{field:'sfzh', title: '身份证号'}
+                ,{field:'sex', title: '性别'}
+                ,{field:'zt', title: '状态'}
+                ,{field:'gldw', title: '管理单位'}
+                ,{field:'dybm', title: '对应部门'}
             ]],
+            page: true,
             data: datas,
             limit: datas.length//显示的数量
         });
@@ -40,10 +46,10 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
         var checkStatus = table.checkStatus(obj.config.id);
         switch(obj.event){
             case 'add':
-                addRowData();
+                addUser();
                 break;
             case 'save':
-                updateDictData(saveArr)
+                layer.msg(checkStatus.data);
                 break;
             case 'delect':
                 //获取选中行数量，可作为是否有选中行的条件
@@ -83,5 +89,22 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                 break;
         };
     });
+    function addUser(){
+        layer.open({
+            title: '新增用户',
+            type:1,//类型
+            anim:3,//弹出方式
+            maxmin:true,
+            closeBtn:1,
+            shade:0.3,//遮罩层
+            scrollbar: false,
+            area:['700px','500px'],
+            content: $('#addUserModel'),
+            btn:['确定','关闭'],
+            yes:function (index) {
 
+                saveDictData(index);
+            }
+        })
+    }
 });
