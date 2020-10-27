@@ -23,6 +23,9 @@ public class RwdbInterfaceURLController {
     @RequestMapping("/login")
     public String login(){ return "page/yhzx/login/login"; }
 
+     @RequestMapping("/register")
+    public String register(){ return "page/yhzx/register/register"; }
+
     @RequestMapping(value = "/getVerify")
     public void getVerify(HttpServletRequest request, HttpServletResponse response) {
         try {

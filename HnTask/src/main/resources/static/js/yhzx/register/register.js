@@ -2,28 +2,35 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     var form = layui.form;
     var $ = layui.jquery;
 
-    $('#loginBtn').click(function() {
-        login();
+    $('#registerBtn').click(function() {
+        registerBtn();
     });
     $('body').keydown(function() {
         if(event.keyCode == "13"){
-            $('#loginBtn').click();
+            $('#registerBtn').click();
         }
     });
 
-    function login() {
+    function registerBtn() {
         var username=$('#username').val();
         var password=$('#password').val();
-        var checkcode =$('#LAY-user-login-vercode').val();
+        var password2=$('#password2').val();
+        var usertype=$('#usertype').val();
+        if(password!=password2){
+            return;
+        }
+        if(usertype==""){
+            return;
+        }
         var user={
             username:username,
             password:password,
-            checkcode:checkcode
+            usertype:usertype
         };
 
         $.ajax({
             type: "post",
-            url: '/com/edu/zut/login/UserLogin',
+            url: '/com/edu/zut/login/Userregister',
             data: user,
             dataType: 'JSON',
             async:false,
