@@ -6,17 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b7691db-92b9-45fc-8e2c-d8ea58a5abae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/RwdbInterfaceURLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/RwdbInterfaceURLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/domain/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/mapper/LoginMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/mapper/LoginMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/service/ILoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/service/ILoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/service/impl/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/service/impl/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/yhzx/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/yhzx/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/yhzx/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/yhzx/login/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="8b7691db-92b9-45fc-8e2c-d8ea58a5abae" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +261,7 @@
       <workItem from="1602683923397" duration="599000" />
       <workItem from="1602769885483" duration="628000" />
       <workItem from="1603719285988" duration="4141000" />
-      <workItem from="1603801086370" duration="11833000" />
+      <workItem from="1603801086370" duration="11964000" />
     </task>
     <servers />
   </component>
@@ -340,16 +330,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602302478532" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/service/impl/LoginService.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
