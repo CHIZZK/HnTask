@@ -11,6 +11,10 @@ layui.use(['form', 'layedit', 'laydate'], function(){
         }
     });
 
+    $("#imgVerify").on("click", function() {
+        $("#imgVerify").attr("src", '/com/edu/zut/login/getVerify?' + Math.random());//jquery方式
+    });
+
     function login() {
         var username=$('#username').val();
         var password=$('#password').val();
@@ -36,16 +40,10 @@ layui.use(['form', 'layedit', 'laydate'], function(){
                         //do something
                     });
                 }else{
-                    window.open("/com/edu/zut/yhzx/szyh");
+                    location.href="/com/edu/zut/yhzx/szyh";
                 }
             },
         })
 
     }
 });
-
-function getVerify() {
-    $("#imgCode").on("click", function() {
-         $("#imgVerify").attr("src", 'login/getVerify?' + Math.random());//jquery方式
-    });
-}
