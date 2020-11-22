@@ -10,5 +10,7 @@ public class YhzxInterfaceURLController {
     public String szyh(){ return "page/yhzx/yhgl/szyh"; }
     @RequestMapping("/szjs")
     public String szjs(){ return "page/yhzx/yhgl/szjs"; }
+    @RequestMapping("/zzgl")
+    public String zzgl(){ return "page/yhzx/yhgl/zzgl"; }
 
 }

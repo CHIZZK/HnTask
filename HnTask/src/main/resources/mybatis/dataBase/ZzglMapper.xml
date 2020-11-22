@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.zut.rwdb.system.mapper.ZzglMapper">
+
+	<select id="findData" resultType="java.util.Map">
+		  SELECT  B.GID, B.COMPNAME, B.COMPID, B.SCOMPNAME, B.PCOMPID,  B.ORGANFLAG,dcdw,
+		  (case when B.STOPFLAG =0 then '正常' else '停用' end )STOPFLAG,
+    	  (SELECT A.SCOMPNAME FROM RWDB_ORGANIZATION A WHERE A.COMPID=B.PCOMPID) SJDW
+    	  FROM RWDB_ORGANIZATION B ORDER  BY COMPID DESC
+	</select>
+	<insert id="savaData">
+		 insert into RWDB_ORGANIZATION(createperson, createtime, gid, compname,
+		  compid, scompname, pcompid, stopflag,DCDW, organflag)
+		 values (#{yhdm},sysdate,#{gid},#{zzmc},#{zzbh},#{zzjc},#{sjzz},0,#{dcdw},#{zzbz})
+	</insert>
+    <update id="updateData">
+        update RWDB_ORGANIZATION set COMPNAME=#{zzmc},SCOMPNAME=#{zzjc},COMPID=#{zzbh},DCDW=#{dcdw}
+        where GID=#{gid}
+    </update>
+	<update id="stopData">
+        update RWDB_ORGANIZATION set stopflag=1
+        where GID=#{gid}
+    </update>
+
+</mapper>

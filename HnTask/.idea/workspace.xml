@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b7691db-92b9-45fc-8e2c-d8ea58a5abae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/yhzx/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/yhzx/register/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/YhzxInterfaceURLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/zut/rwdb/system/controller/YhzxInterfaceURLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/dataBase/Login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/dataBase/LoginMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +51,9 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="HnTask" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,29 +116,29 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins\layui" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins\treetable-lay" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins\treetable" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\js\rwdb" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.edu" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\java\com\edu\zut\rwdb\system\utils" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\mybatis\dataBase" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\js\yhzx\register" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\templates\page\yhzx\register" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.edu.zut.rwdb.system.utils" />
       <recent name="com.edu.zut.rwdb.system.mapper" />
-      <recent name="com.edu.zut.rwdb.system.service" />
       <recent name="com.edu.zut.rwdb.system.service.impl" />
+      <recent name="com.edu.zut.rwdb.system.service" />
       <recent name="com.edu.zut.rwdb.system.controller" />
+      <recent name="com.edu.zut.rwdb.system.utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\mybatis\dataBase" />
       <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\js\rwdb" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\templates\page\rwdb" />
-      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\templates\page\yhzx" />
-      <recent name="D:\IDEA workspace\hnrwdb\src\main\resources\static\js" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\js\yhzx\yhgl" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\templates\page\yhzx\yhgl" />
+      <recent name="D:\IDEA workspace\dbkhrw\HnTask\src\main\resources\static\plugins\layui" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -265,7 +271,13 @@
       <workItem from="1602769885483" duration="628000" />
       <workItem from="1603719285988" duration="4141000" />
       <workItem from="1603801086370" duration="11964000" />
-      <workItem from="1603883444669" duration="2850000" />
+      <workItem from="1603883444669" duration="3390000" />
+      <workItem from="1603890460356" duration="719000" />
+      <workItem from="1604040421185" duration="15000" />
+      <workItem from="1604118047317" duration="15591000" />
+      <workItem from="1605788916432" duration="9000000" />
+      <workItem from="1605866881490" duration="1811000" />
+      <workItem from="1606039929088" duration="5279000" />
     </task>
     <servers />
   </component>
