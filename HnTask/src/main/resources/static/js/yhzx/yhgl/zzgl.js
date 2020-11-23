@@ -19,7 +19,7 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
         tableIns = table.render({
             elem: '#dataTable'//表的id
             , toolbar: '#toolbar' //开启头部工具栏，并为其绑定左侧模板
-            , title: '字典数据表'
+            , title: '组织数据表'
             ,id: 'idTest'
             , cols: [[
                  {field:'GID', title: 'ID', hide: true}
@@ -77,7 +77,11 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                 break;
             case 'stop':
                 layer.confirm('是否停用该组织?', {icon: 3, title:'提示'}, function(index){
-                    stopDate(checkStatus.data[0].GID);
+                    var gidArr=[];
+                    for (var i=0;i<checkStatus.data.length;i++){
+                        gidArr.push(checkStatus.data[i].GID);
+                    }
+                    stopDate(gidArr);
                     layer.close(index);
                 });
                 break;
@@ -154,9 +158,18 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                     layer.alert('组织简称不能为空。');
                     return;
                 }
+                if (zzbh==null||zzbh==""){
+                    layer.alert('组织编号不能为空。');
+                    return;
+                }
+                var zz=/^\+?[1-9][0-9]*$/;
                 for (var i=0;i<datas.length;i++){
                     if(datas[i].COMPID==zzbh){
                         layer.alert('组织编号已存在。');
+                        return;
+                    }
+                    if(!zz.test(zzbh)){
+                        layer.alert('组织编号只能为非零正整数。');
                         return;
                     }
                 }
@@ -303,12 +316,13 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
             },
         })
     }
-    function stopDate(gid) {
+    function stopDate(data) {
         $.ajax({
             type: "post",
             url: '/com/edu/zut/zzgl/stopData',
-            data: {gid:gid},
-            dataType: 'JSON',
+            data: JSON.stringify(data),
+            contentType:"application/json",
+            dataType: 'json',
             async:false,
             success: function (r) {
                 if (r.code == '500') {

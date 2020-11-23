@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" th:href="@{/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{/plugins/layui/css/layui.css}" media="all">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -28,11 +28,12 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
-                <li class="layui-nav-item">
+                <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">设置用户</a></dd>
-                        <dd><a href="">设置角色</a></dd>
+                        <dd><a href="/com/edu/zut/yhzx/szyh">设置用户</a></dd>
+                        <dd><a href="/com/edu/zut/yhzx/szjs" class="layui-this">设置角色</a></dd>
+                        <dd><a href="/com/edu/zut/yhzx/zzgl">组织管理</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -47,15 +48,40 @@
             <script type="text/html" id="toolbar">
                 <div class="layui-btn-container">
                     <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
-                    <button class="layui-btn layui-btn-sm" lay-event="delect">删除</button>
-                    <button class="layui-btn layui-btn-sm" lay-event="save">保存</button>
+                    <button class="layui-btn layui-btn-sm" lay-event="update">修改</button>
+                    <button class="layui-btn layui-btn-sm" lay-event="recover">恢复</button>
+                    <button class="layui-btn layui-btn-sm" lay-event="stop">停用</button>
                 </div>
             </script>
         </div>
     </div>
     <!-- 内容主体区域结束-->
 </div>
+
+<!--新增模态框 开始-->
+<div id="addJsModel" style="display: none">
+    <div class="layui-form-item" style="padding: 20px">
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label"><span style="color: red">*</span>角色名称：</label>
+                <div class="layui-input-block" >
+                    <input type="text" id="jsmc" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label">角色编号：</label>
+                <div class="layui-input-block" >
+                    <input type="text" id="jsbh" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--新增模态框 结束-->
+
 <script th:src="@{/plugins/layui/layui.js}"></script>
-<script type="text/javascript" th:src="@{/js/yhzx/yhgl/szyh.js}"></script>
+<script type="text/javascript" th:src="@{/js/yhzx/yhgl/szjs.js}"></script>
 </body>
 </html>

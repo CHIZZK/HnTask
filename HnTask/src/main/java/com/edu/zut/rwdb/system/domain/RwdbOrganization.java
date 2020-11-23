@@ -1,5 +1,4 @@
-package com.sample;
-
+package com.edu.zut.rwdb.system.domain;
 
 public class RwdbOrganization {
 

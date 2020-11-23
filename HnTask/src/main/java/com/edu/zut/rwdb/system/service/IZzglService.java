@@ -1,5 +1,6 @@
 package com.edu.zut.rwdb.system.service;
 
+import com.edu.zut.rwdb.system.domain.RwdbOrganization;
 import com.edu.zut.rwdb.system.utils.AjaxResult;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,5 +15,5 @@ public interface IZzglService {
 
     AjaxResult updateData(HttpServletRequest request, String gid, String zzmc, String zzbh, String zzjc, String dcdw);
 
-    AjaxResult stopData(HttpServletRequest request, String gid);
+    AjaxResult stopData(HttpServletRequest request,List<String> data);
 }

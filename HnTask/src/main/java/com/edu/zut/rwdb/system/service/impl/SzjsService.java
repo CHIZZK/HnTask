@@ -1,12 +1,9 @@
 package com.edu.zut.rwdb.system.service.impl;
 
-import com.edu.zut.rwdb.system.domain.RwdbOrganization;
-import com.edu.zut.rwdb.system.mapper.LoginMapper;
-import com.edu.zut.rwdb.system.mapper.ZzglMapper;
-import com.edu.zut.rwdb.system.service.ILoginService;
+import com.edu.zut.rwdb.system.mapper.SzjsMapper;
+import com.edu.zut.rwdb.system.service.ISzjsService;
 import com.edu.zut.rwdb.system.service.IZzglService;
 import com.edu.zut.rwdb.system.utils.AjaxResult;
-import com.edu.zut.rwdb.system.utils.PBKDF2Util;
 import com.edu.zut.rwdb.system.utils.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,23 +20,21 @@ import static com.edu.zut.rwdb.system.utils.AjaxResult.error;
 import static com.edu.zut.rwdb.system.utils.AjaxResult.success;
 
 @Service
-public class ZzglService implements IZzglService {
-    private final Logger logger = LoggerFactory.getLogger(ZzglService.class);
+public class SzjsService implements ISzjsService {
+    private final Logger logger = LoggerFactory.getLogger(SzjsService.class);
     @Autowired
-    private ZzglMapper zzglMapper;
+    private SzjsMapper SzjsMapper;
     @Autowired
     private UuidUtil uuidUtil;
 
     @Override
-    public AjaxResult savaData(HttpServletRequest request, String sjzz,
-                               String zzmc,String zzbh,String zzjc,String zzbz,String dcdw) {
+    public AjaxResult savaData(HttpServletRequest request, String jsmc, String jsbh) {
         HttpSession session = request.getSession();
         if (session.getAttribute("yhdm")==null){
             return error("用户未登录系统");
         }
-        int yhdm = Integer.valueOf(session.getAttribute("yhdm").toString());
         String gid= uuidUtil.newUuid();
-        zzglMapper.savaData(gid,yhdm,sjzz, zzmc, zzbh, zzjc, Integer.valueOf(zzbz), Integer.valueOf(dcdw));
+        SzjsMapper.savaData(gid,jsmc,jsbh);
         return success();
     }
 
@@ -50,27 +45,27 @@ public class ZzglService implements IZzglService {
             logger.info("用户未登录系统。");
             return new ArrayList<Map>();
         }
-        return zzglMapper.findData();
+        return SzjsMapper.findData();
     }
 
     @Override
-    public AjaxResult updateData(HttpServletRequest request, String gid, String zzmc, String zzbh, String zzjc, String dcdw) {
+    public AjaxResult updateData(HttpServletRequest request,String gid,String jsmc){
         HttpSession session = request.getSession();
         if (session.getAttribute("yhdm")==null){
             return error("用户未登录系统");
         }
-        zzglMapper.updateData(gid, zzmc, zzbh, zzjc, Integer.valueOf(dcdw));
+        SzjsMapper.updateData(gid, jsmc);
         return success();
     }
 
     @Override
-    public AjaxResult stopData(HttpServletRequest request,List<String> data) {
+    public AjaxResult stopData(HttpServletRequest request,List<Map> data) {
         HttpSession session = request.getSession();
         if (session.getAttribute("yhdm")==null){
             return error("用户未登录系统");
         }
-        for (String gid : data){
-            zzglMapper.stopData(gid);
+        for ( Map map : data){
+            SzjsMapper.stopData(map.get("gid").toString(),Integer.valueOf(map.get("stopflag").toString()));
         }
         return success();
     }
