@@ -46,13 +46,53 @@
             </div>
             <div class="layui-trans layui-form-item layadmin-user-login-other">
                 <label>没有帐号，去</label>
-                <a href="/com/edu/zut/rwdb/register"  class="layadmin-link" id="regBtn">注册帐号</a>
+                <a href="/com/edu/zut/yhzx/register"  class="layadmin-link" id="regBtn">注册帐号</a>
+                <a href="javascript:;"  class="layadmin-link" id="upPwd" style="padding-left: 30px">修改密码</a>
             </div>
         </div>
     </div>
 </div>
+<!--新增模态框 开始-->
+<div id="upPwdModel" style="display: none">
+
+    <div class="layui-form-item" style="padding: 20px">
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-block" >
+                    <input type="text" id="username2" placeholder="输入用户名" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label">旧密码：</label>
+                <div class="layui-input-block" >
+                    <input type="password"  id="oldpassword" placeholder="输入旧密码" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label">新密码：</label>
+                <div class="layui-input-block" >
+                    <input type="password" id="newpassword"  placeholder="输入新密码" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row" style="padding-top: 20px">
+            <div class="layui-col-xs12">
+                <label class="layui-form-label">新密码：</label>
+                <div class="layui-input-block" >
+                    <input type="password" id="newpassword2" placeholder="再次输入新密码" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--新增模态框 结束-->
 <!-- 全局js -->
 <script th:src="@{/plugins/layui/layui.js}"></script>
-<script th:src="@{/js/yhzx/login/login.js}"></script>
+<script th:src="@{/js/yhzx/login/yhzxlogin.js}"></script>
 </body>
 </html>

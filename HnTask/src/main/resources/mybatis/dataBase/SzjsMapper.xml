@@ -7,7 +7,7 @@
 	<select id="findData" resultType="java.util.Map">
 		  SELECT  gid,postid,postname,cjsj,
 		  (case when STOPFLAG =0 then '正常' else '停用' end )STOPFLAG
-    	  from RWDB_XTPOST  ORDER  BY cjsj DESC
+    	  from RWDB_XTPOST  ORDER  BY postid DESC
 	</select>
 	<insert id="savaData">
 		 insert into RWDB_XTPOST(GID, POSTID, POSTNAME, CJSJ, stopflag)

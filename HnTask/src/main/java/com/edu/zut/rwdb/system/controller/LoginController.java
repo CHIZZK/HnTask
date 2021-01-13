@@ -4,6 +4,7 @@ import com.edu.zut.rwdb.system.service.IDatabaseService;
 import com.edu.zut.rwdb.system.service.ILoginService;
 import com.edu.zut.rwdb.system.utils.AjaxResult;
 import com.edu.zut.rwdb.system.utils.RandomValidateCodeUtil;
+import com.edu.zut.rwdb.system.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +51,26 @@ public class LoginController {
      * 用户注册.
      * @param username
      * @param password
-     * @param usertype
      * @return
      */
     @RequestMapping("/Userregister")
     @ResponseBody
-    public AjaxResult Userregister(HttpServletRequest request, String username, String password, String usertype){
-        return loginService.Userregister(request, username, password,usertype);
+    public AjaxResult Userregister(HttpServletRequest request, String username, String password){
+        return loginService.Userregister(request, username, password);
+    }
+
+    /**
+     * 修改密码.
+     * @param request
+     * @param username
+     * @param oldpassword
+     * @param newpassword
+     * @return
+     */
+    @RequestMapping("/updatePwd")
+    @ResponseBody
+    public AjaxResult updatePwd(HttpServletRequest request, String username, String oldpassword, String newpassword){
+        return loginService.updatePwd(request, username,oldpassword, newpassword);
     }
     @RequestMapping(value = "/getVerify")
     public void getVerify(HttpServletRequest request, HttpServletResponse response) {
@@ -94,5 +108,26 @@ public class LoginController {
             logger.error("验证码校验失败", e);
             return 1;
         }
+    }
+
+    /**
+     * 获取用户名.
+     * @param request
+     * @return
+     */
+    @RequestMapping("/getUserName")
+    @ResponseBody
+    public AjaxResult getUserName(HttpServletRequest request){
+        return loginService.getUserName(request);
+    }
+    /**
+     * 注销用户.
+     * @param request
+     * @return
+     */
+    @RequestMapping("/logout")
+    @ResponseBody
+    public AjaxResult logout(HttpServletRequest request){
+        return loginService.logout(request);
     }
 }

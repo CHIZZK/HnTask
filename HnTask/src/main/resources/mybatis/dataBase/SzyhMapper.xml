@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.zut.rwdb.system.mapper.SzyhMapper">
+
+	<select id="findData" resultType="java.util.Map">
+		SELECT  B.GID,B.DWDM,B.YHDM,B.YHMC,B.XSMC,
+         B.DLSJ,B.XXSJ,B.SFZH,B.MOVETEL,B.IPADDR,
+         B.EMAIL,B.SEX,B.EMAIL,
+        (CASE WHEN B.USERTYPE =0 THEN '系统管理员' ELSE '普通' END )USERTYPE,
+        (CASE WHEN B.STOPED =0 THEN '正常' ELSE '停用' END )STOPFLAG,
+        (SELECT A.SCOMPNAME FROM RWDB_ORGANIZATION A  WHERE A.COMPID=B.DWDM ) GLDW,
+        (SELECT A.SCOMPNAME FROM RWDB_ORGANIZATION A,RWDB_UNITDEPT C WHERE A.COMPID=C.DEPT AND C.YHDM=B.YHDM) DYBM,
+        (SELECT C.DEPT FROM RWDB_UNITDEPT C WHERE c.YHDM=B.YHDM ) BMDM
+        FROM RWDB_XTYHXX B ORDER  BY YHDM DESC
+	</select>
+    <select id="findGldw" resultType="java.util.Map">
+		 SELECT  * FROM RWDB_ORGANIZATION A where a.organflag=0 ORDER  BY compid DESC
+	</select>
+    <select id="findDybm" resultType="java.util.Map">
+		  SELECT * FROM RWDB_ORGANIZATION A where a.organflag=1
+		   and a.pcompid=#{compid} and a.stopflag=1  ORDER  BY compid DESC
+	</select>
+    <select id="findYhjs" resultType="java.util.Map">
+		    SELECT p.postid id,p.postname title,
+            (case when x.postid is null then 0 else 1 end) checked
+            FROM Rwdb_Xtpost p
+            left join
+            rwdb_postop x on x.postid=p.postid and x.yhdm=#{yhdm}
+            where p.stopflag=0  ORDER  BY p.postid DESC
+	</select>
+    <update id="updateYhxx">
+        update RWDB_XTYHXX set dwdm=#{gldw}, xsmc=#{xsmc}, Movetel=#{tel}, EMAIL=#{email}
+        where GID=#{gid}
+    </update>
+    <update id="updateUnitdept">
+        update RWDB_UNITDEPT set DEPT=#{dybm}
+        where YHDM=#{yhdm}
+    </update>
+	<update id="stopData">
+        UPDATE RWDB_XTYHXX SET STOPED=#{stoped}
+        WHERE GID=#{gid}
+    </update>
+    <update id="resetPwd">
+        UPDATE RWDB_XTYHXX SET SALT=#{salt},JAVAMM=#{epwd}
+        WHERE GID=#{gid}
+    </update>
+	<insert id="savaYhxx">
+		 insert into RWDB_XTYHXX(gid, dwdm, yhdm, yhmc, xsmc, salt, javamm, stoped, usertype, Movetel, EMAIL  )
+		 values (#{gid},#{gldw},#{yhdm},#{yhmc},#{xsmc},#{salt},#{javamm}, 0, 1,#{Movetel},#{email})
+	</insert>
+	<insert id="savaUnitdept">
+		 insert into Rwdb_Unitdept(gid,Yhdm,Compid,Dept)
+     		values (#{gid},#{yhdm},#{gldw},#{dybm})
+	</insert>
+    <insert id="savePost">
+		 insert into RWDB_POSTOP(gid,Yhdm,POSTID)
+     		values (#{gid},#{yhdm},#{postid})
+	</insert>
+    <delete id="deletePostByYhdm">
+		delete from RWDB_POSTOP where YHDM=#{yhdm}
+	</delete>
+</mapper>

@@ -18,8 +18,11 @@
         <div class="layui-header">
             <h1 style="padding: 10px;color: white;float: left">用户中心</h1>
             <ul class="layui-nav layui-layout-right" >
+                <li class="layui-nav-item " lay-unselect="" style="margin-right: 20px">
+                    <span id="username"></span>
+                </li>
                 <li class="layui-nav-item " lay-unselect="" style="margin-right: 100px">
-                    <i class="layui-icon layui-icon-logout" style="color: white"></i>
+                    <i class="layui-icon layui-icon-logout" style="color: white;padding-left: 20px" id="logout"></i>
                 </li>
             </ul>
         </div>
@@ -48,11 +51,11 @@
                 <script type="text/html" id="toolbar">
                     <div class="layui-btn-container">
                         <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
-                        <button class="layui-btn layui-btn-sm" lay-event="pladd">导入用户</button>
+                        <button class="layui-btn layui-btn-sm" lay-event="update">修改</button>
+                        <button class="layui-btn layui-btn-sm" lay-event="setrole">设置角色</button>
                         <button class="layui-btn layui-btn-sm" lay-event="stop">停用</button>
                         <button class="layui-btn layui-btn-sm" lay-event="recover">恢复</button>
                         <button class="layui-btn layui-btn-sm" lay-event="reset">密码重置</button>
-                        <button class="layui-btn layui-btn-sm" lay-event="save">保存</button>
                     </div>
                 </script>
             </div>
@@ -85,7 +88,7 @@
                 </div>
             </div>
             <div class="layui-col-xs6">
-                <label class="layui-form-label">手机号：</label>
+                <label class="layui-form-label"><span style="color: red">*</span>手机号：</label>
                 <div class="layui-input-block" >
                     <input type="text" id="tel" lay-verify="required|number" autocomplete="off" class="layui-input">
                 </div>
@@ -93,36 +96,31 @@
         </div>
             <div class="layui-row" style="padding-top: 20px">
                 <div class="layui-col-xs6">
-                    <label class="layui-form-label">身份证号：</label>
-                    <div class="layui-input-block" >
-                        <input type="text" id="sfzh" lay-verify="required|number" autocomplete="off" class="layui-input">
+                    <label class="layui-form-label"><span style="color: red">*</span>管理单位</label>
+                    <div class="layui-input-block">
+                        <select name="modules" id="gldw" lay-verify="required" class="layui-input">
+                        </select>
                     </div>
                 </div>
                 <div class="layui-col-xs6">
-                    <label class="layui-form-label">性别：</label>
-                    <div class="layui-input-block" >
-                        <input type="text" id="sex" lay-verify="required|number" autocomplete="off" class="layui-input">
+                    <label class="layui-form-label"><span style="color: red">*</span>对应部门：</label>
+                    <div class="layui-input-block">
+                        <select name="modules" id="dybm" lay-verify="required" class="layui-input">
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="layui-row" style="padding-top: 20px">
-                <div class="layui-col-xs6">
-                    <label class="layui-form-label">管理单位：</label>
-                    <div class="layui-input-block" >
-                        <input type="text" id="gldw" lay-verify="required|number" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-col-xs6">
-                    <label class="layui-form-label">对应部门：</label>
-                    <div class="layui-input-block" >
-                        <input type="text" id="dybm" lay-verify="required|number" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!--新增模态框 结束-->
+    <!--设置角色模态框 开始-->
+    <div id="setRoleModel" style="display: none">
+        <div class="demo-tree-more" style="overflow: auto" id="roleTree">
 
+        </div>
+    </div>
+    <!--设置角色模态框 结束-->
     <script th:src="@{/plugins/layui/layui.js}"></script>
     <script type="text/javascript" th:src="@{/js/yhzx/yhgl/szyh.js}"></script>
 </body>

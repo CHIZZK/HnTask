@@ -15,7 +15,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
         var username=$('#username').val();
         var password=$('#password').val();
         var password2=$('#password2').val();
-        var usertype=$('#usertype').val();
         if(password!=password2){
             layer.msg('密码不一致', {
                 icon: 5,
@@ -25,19 +24,9 @@ layui.use(['form', 'layedit', 'laydate'], function(){
             });
             return;
         }
-        if(usertype==""){
-            layer.msg('用户类型不能为空', {
-                icon: 5,
-                time: 2000 //2秒关闭（如果不配置，默认是3秒）
-            }, function(){
-                //do something
-            });
-            return;
-        }
         var user={
             username:username,
-            password:password,
-            usertype:usertype
+            password:password
         };
 
         $.ajax({

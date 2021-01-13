@@ -11,9 +11,12 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
     var tableIns;
     var djdw=true;
     $(document).ready(function () {
+        findUserName();
         findData();
     });
-
+    $('#logout').click(function () {
+        logout();
+    });
     // 表格渲染
     function dataList(datas){
         tableIns = table.render({
@@ -23,10 +26,10 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
             ,id: 'idTest'
             , cols: [[
                 {field:'GID', title: 'ID', hide: true}
-                ,{field:'POSTID', title: 'ID', hide: true}
                 ,{type: 'checkbox', fixed: 'left'}
                 ,{title: '序号', fixed: 'left', unresize: true, align: 'center', type: 'numbers'}
                 ,{field:'POSTNAME', title: '角色名称'}
+                ,{field:'POSTID', title: 'ID'}
                 ,{field:'STOPFLAG', title: '角色状态'}
             ]],
             data: datas,
@@ -259,6 +262,34 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                     djdw=false;
                 }
                 dataList(r);
+            },
+        })
+    }
+    function findUserName() {
+        $.ajax({
+            type: "post",
+            url: '/com/edu/zut/login/getUserName',
+            data: {},
+            dataType: 'JSON',
+            async:false,
+            success: function (r) {
+                if (r.code==0){
+                    $('#username').text(r.data);
+                }else{
+                    location.href="/com/edu/zut/rwdb/login";
+                }
+            },
+        })
+    }
+    function logout() {
+        $.ajax({
+            type: "post",
+            url: '/com/edu/zut/login/logout',
+            data: {},
+            dataType: 'JSON',
+            async:false,
+            success: function (r) {
+                location.href="/com/edu/zut/yhzx/yhzxlogin";
             },
         })
     }

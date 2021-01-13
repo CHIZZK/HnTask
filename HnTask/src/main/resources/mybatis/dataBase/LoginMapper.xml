@@ -5,7 +5,9 @@
 <mapper namespace="com.edu.zut.rwdb.system.mapper.LoginMapper">
 
     <select id="selectYhdm"  resultType="java.lang.String">
-		 SELECT TO_CHAR(MAX(X.YHDM)) YHDM FROM RWDB_XTYHXX X GROUP BY X.YHDM
+		SELECT * FROM (
+		SELECT TO_CHAR(MAX(X.YHDM)) YHDM FROM RWDB_XTYHXX X GROUP BY X.YHDM ORDER BY X.YHDM DESC)
+		WHERE ROWNUM=1
 	</select>
 	<select id="selectYhmc"  resultType="java.lang.Integer">
 		 SELECT count(1) FROM RWDB_XTYHXX X where x.YHMC=#{yhmc}
@@ -17,5 +19,8 @@
 		 insert into RWDB_XTYHXX(gid, dwdm, yhdm, yhmc, xsmc, salt, javamm, stoped, usertype )
 		 values (#{gid},'9999',#{yhdm},#{yhmc},#{xsmc},#{salt},#{javamm},0,#{usertype})
 	</insert>
-
+	<update id="updatePwd">
+        update RWDB_XTYHXX set SALT=#{newsalt}, JAVAMM=#{newepwd}
+        where YHMC=#{username}
+    </update>
 </mapper>

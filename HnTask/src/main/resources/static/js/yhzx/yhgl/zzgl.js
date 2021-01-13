@@ -11,9 +11,12 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
     var tableIns;
     var djdw=true;
     $(document).ready(function () {
+        findUserName();
         findData();
     });
-
+    $('#logout').click(function () {
+        logout();
+    });
     // 表格渲染
     function dataList(datas){
         tableIns = table.render({
@@ -354,6 +357,34 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                     djdw=false;
                 }
                 dataList(r);
+            },
+        })
+    }
+    function findUserName() {
+        $.ajax({
+            type: "post",
+            url: '/com/edu/zut/login/getUserName',
+            data: {},
+            dataType: 'JSON',
+            async:false,
+            success: function (r) {
+                if (r.code==0){
+                    $('#username').text(r.data);
+                }else{
+                    location.href="/com/edu/zut/yhzx/yhzxlogin";
+                }
+            },
+        })
+    }
+    function logout() {
+        $.ajax({
+            type: "post",
+            url: '/com/edu/zut/login/logout',
+            data: {},
+            dataType: 'JSON',
+            async:false,
+            success: function (r) {
+                location.href="/com/edu/zut/yhzx/yhzxlogin";
             },
         })
     }

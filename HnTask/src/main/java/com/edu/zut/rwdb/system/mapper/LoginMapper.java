@@ -14,4 +14,6 @@ public interface LoginMapper {
     int selectYhmc(String yhmc);
 
     List<Map> selectYhxx(String yhmc);
+
+    void updatePwd(String username, String newsalt, String newepwd);
 }

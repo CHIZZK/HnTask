@@ -17,25 +17,23 @@
     <div class="layui-header">
         <h1 style="padding: 10px;color: white;float: left">任务督办考核系统</h1>
         <ul class="layui-nav layui-layout-right" >
+            <li class="layui-nav-item " lay-unselect="" style="margin-right: 20px">
+                <span id="username"></span>
+            </li>
             <li class="layui-nav-item " lay-unselect="" style="margin-right: 100px">
-                <span class="layui-badge-dot"></span>
-                <a href="javascript:;"><span  id="username">我</span></a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">修改密码</a></dd>
-                    <dd><a href="">退出</a></dd>
-                </dl>
+                <i class="layui-icon layui-icon-logout" style="color: white;padding-left: 20px" id="logout"></i>
             </li>
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
-                <li class="layui-nav-item layui-this"><a href="">任务接收</a></li>
+                <li class="layui-nav-item layui-this"><a href="/com/edu/zut/rwdb/index">任务接收</a></li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">任务编写及审核</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">任务编写</a></dd>
-                        <dd><a href="">任务审核</a></dd>
+                        <dd><a href="/com/edu/zut/rwdb/rwbx">任务编写</a></dd>
+                        <dd><a href="/com/edu/zut/rwdb/index">任务审核</a></dd>
                     </dl>
                 </li>
 
@@ -43,9 +41,50 @@
             </ul>
         </div>
     </div>
+    <!-- 内容主体区域开始 -->
     <div class="layui-body">
-        <!-- 内容主体区域 -->
+        <!--查询开始-->
+        <div class="layui-form-item" style="padding-top: 20px">
+            <div class="layui-inline">
+                <label class="layui-form-label">工作内容</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="yhmc" lay-verify="required|number" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">工作类别</label>
+                <div class="layui-input-inline">
+                    <select name="modules" id="gzlb" lay-verify="required" class="layui-input">
+                        <option value=""></option>
+                        <option value="0">公司工作</option>
+                        <option value="1">部门工作</option>
+                        <option value="2">个人工作</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">考核期间</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="date" id="startTime" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" readonly>
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="date" id="endTime" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" readonly>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button id="resetBtn" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+            <div class="layui-inline">
+                <button type="button" id="queryBtn"  class="layui-btn">查询</button>
+            </div>
+        </div>
+        <!--查询结束-->
+        <div>
+            <table class="layui-hide" id="dataTable" lay-filter="data"></table>
+        </div>
     </div>
+    <!-- 内容主体区域结束-->
 </div>
 <script th:src="@{/plugins/layui/layui.js}"></script>
 <script type="text/javascript" th:src="@{/js/rwdb/index.js}"></script>
