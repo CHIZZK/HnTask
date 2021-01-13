@@ -6,8 +6,6 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
     var $ = layui.jquery;
     var table = layui.table;
     var laydate = layui.laydate;
-    var saveArr = [];
-    var id;
     var tableIns;
     var djdw=true;
     //日期
@@ -19,7 +17,15 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
     });
     $(document).ready(function () {
         findUserName();
-        findData();
+        findData(getParms());
+    });
+    $('#queryBtn').click(function () {
+        findData(getParms());
+    });
+    $('#resetBtn').click(function () {
+        $('#gznr').val('');
+        $('#startTime').val('');
+        $('#endTime').val('');
     });
     $('#logout').click(function () {
         logout();
@@ -33,23 +39,24 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
             ,id: 'idTest'
             , cols: [[
                 {field:'GID', title: 'ID', hide: true}
-                ,{type: 'checkbox', fixed: 'left'}
                 ,{title: '序号', fixed: 'left', unresize: true, align: 'center', type: 'numbers'}
-                ,{field:'GZLB', title: '工作类别'}
-                ,{field:'GZNR', title: '工作内容'}
-                ,{field:'GZBZ', title: '工作标准'}
-                ,{field:'KSSJ', title: '开始时间'}
-                ,{field:'JSSJ', title: '结束时间'}
+                ,{field:'GZLB', title: '工作类别', align: 'center'}
+                ,{field:'GZLX', title: '工作类型', align: 'center'}
+                ,{field:'GZNR', title: '工作内容', align: 'center'}
+                ,{field:'GZBZ', title: '工作标准', align: 'center'}
+                ,{field:'KSSJ', title: '开始时间', align: 'center'}
+                ,{field:'JSSJ', title: '结束时间', align: 'center'}
             ]],
             data: datas,
         });
     }
 
-    function findData() {
+    function findData(datas) {
         $.ajax({
             type: "post",
-            url: '/com/edu/zut/zzgl/findData',
-            data: {},
+            url: '/com/edu/zut/rwjs/findData',
+            data: JSON.stringify(datas),
+            contentType:"application/json",
             dataType: 'JSON',
             async:false,
             success: function (r) {
@@ -59,6 +66,14 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
                 dataList(r);
             },
         })
+    }
+    function getParms() {
+        var datas={
+            gznr:$('#gznr').val(),
+            kssj:$('#startTime').val(),
+            jssj: $('#endTime').val(),
+        };
+        return datas;
     }
     function findUserName() {
         $.ajax({
@@ -84,7 +99,7 @@ layui.use(['element','carousel','laypage','layer','table','laydate'], function()
             dataType: 'JSON',
             async:false,
             success: function (r) {
-                location.href="/com/edu/zut/yhzx/yhzxlogin";
+                location.href="/com/edu/zut/rwdb/rwdblogin";
             },
         })
     }

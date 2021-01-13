@@ -33,7 +33,7 @@
                     <a href="javascript:;">任务编写及审核</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/com/edu/zut/rwdb/rwbx">任务编写</a></dd>
-                        <dd><a href="/com/edu/zut/rwdb/index">任务审核</a></dd>
+                        <dd><a href="/com/edu/zut/rwdb/rwsh">任务审核</a></dd>
                     </dl>
                 </li>
 
@@ -48,18 +48,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">工作内容</label>
                 <div class="layui-input-inline">
-                    <input type="text" id="yhmc" lay-verify="required|number" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">工作类别</label>
-                <div class="layui-input-inline">
-                    <select name="modules" id="gzlb" lay-verify="required" class="layui-input">
-                        <option value=""></option>
-                        <option value="0">公司工作</option>
-                        <option value="1">部门工作</option>
-                        <option value="2">个人工作</option>
-                    </select>
+                    <input type="text" id="gznr" lay-verify="required|number" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
@@ -80,7 +69,7 @@
             </div>
         </div>
         <!--查询结束-->
-        <div>
+        <div style="padding: 10px">
             <table class="layui-hide" id="dataTable" lay-filter="data"></table>
         </div>
     </div>

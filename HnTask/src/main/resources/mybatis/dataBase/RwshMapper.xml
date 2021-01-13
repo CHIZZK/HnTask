@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.zut.rwdb.system.mapper.RwshMapper">
+
+	<select id="findData" resultType="java.util.Map">
+		select max(e.gid)gid,max(e.rwly)rwly,
+		(case when max(e.rwly)=0 then '公司工作' when max(e.rwly)=1 then '部门工作' else '个人工作' end)gzlb
+		,(case when max(e.rwlx)=0 then '重点工作' else '日常工作' end)gzlx
+		,(case when max(e.czzt)=0 then '填单' when max(e.czzt)=1 then '待审核'
+        when max(e.czzt)=2 then  '审核通过' else '审核回退' end)czzt
+		,max(e.gznr)gznr,to_char(max(e.jssj),'yyyy-mm-dd')jssj
+        ,max(e.gzbz)gzbz,max(e.rwlx)rwlx,max(e.czzt)zt,to_char(wm_concat(e.yhdm))yhdm,
+        max(e.shr)shr,to_char(max(e.kssj),'yyyy-mm-dd')kssj,to_char(wm_concat(e.yhmc))zrzt from(
+        select a.gid,a.rwly,a.gznr,a.jssj,a.gzbz,a.rwlx,a.czzt,a.cjr,
+        a.shr,a.kssj,c.yhdm,
+        (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)yhmc
+        from rwdb_rwbxjsh a
+        left join
+         (select b.rwid,b.yhdm from rwdb_taskzrzt b )c on  c.rwid=a.gid
+        where  a.SHR=#{yhdm} and a.czzt=1
+        )e group by gid
+	</select>
+    <select id="findUserRole" resultType="java.util.Map">
+		select b.postname,b.postid from Rwdb_Xtyhxx a,rwdb_xtpost b,rwdb_postop c
+        where a.yhdm=c.yhdm and b.postid = c.postid and a.yhdm=#{yhdm}
+	</select>
+    <update id="updateRwzt">
+        update RWDB_RWBXJSH set CZZT=#{rwzt} where GID=#{gid}
+    </update>
+</mapper>

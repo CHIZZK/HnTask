@@ -1,9 +1,10 @@
 package com.edu.zut.rwdb.system.service.impl;
 
-import com.edu.zut.rwdb.system.mapper.LoginMapper;
 import com.edu.zut.rwdb.system.mapper.RwbxMapper;
 import com.edu.zut.rwdb.system.service.IRwbxService;
-import com.edu.zut.rwdb.system.utils.*;
+import com.edu.zut.rwdb.system.utils.AjaxResult;
+import com.edu.zut.rwdb.system.utils.ConfigUtils;
+import com.edu.zut.rwdb.system.utils.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,6 @@ public class RwbxService implements IRwbxService {
     private RwbxMapper rwbxMapper;
     @Autowired
     private UuidUtil uuidUtil;
-    @Autowired
-    private LoginMapper loginMapper;
-    @Autowired
-    private PBKDF2Util pbkdf2Util;
 
     @Override
     public AjaxResult savaData(HttpServletRequest request,Map data) {

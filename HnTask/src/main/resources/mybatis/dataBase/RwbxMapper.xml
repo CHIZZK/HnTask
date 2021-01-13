@@ -8,7 +8,8 @@
 		select max(e.gid)gid,max(e.rwly)rwly,
 		(case when max(e.rwly)=0 then '公司工作' when max(e.rwly)=1 then '部门工作' else '个人工作' end)gzlb
 		,(case when max(e.rwlx)=0 then '重点工作' else '日常工作' end)gzlx
-		,(case when max(e.czzt)=0 then '填单' when max(e.czzt)=1 then '待审核' else '审核通过' end)czzt
+		,(case when max(e.czzt)=0 then '填单' when max(e.czzt)=1 then '待审核'
+         when max(e.czzt)=2 then  '审核通过' else '审核回退' end)czzt
 		,max(e.gznr)gznr,to_char(max(e.jssj),'yyyy-mm-dd')jssj
         ,max(e.gzbz)gzbz,max(e.rwlx)rwlx,max(e.czzt)zt,to_char(wm_concat(e.yhdm))yhdm,
         max(e.shr)shr,to_char(max(e.kssj),'yyyy-mm-dd')kssj,to_char(wm_concat(e.yhmc))zrzt from(
