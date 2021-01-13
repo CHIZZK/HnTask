@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.zut.rwdb.system.mapper.RwfkMapper">
+
+	<select id="findData" resultType="java.util.Map">
+        select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,a.cjr,
+        a.shr,c.yhdm,to_char(a.kssj,'yyyy-mm-dd')kssj,to_char(a.jssj,'yyyy-mm-dd')jssj,
+        e.fkgid,e.sfwc,e.wcqksm,
+        (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)yhmc,
+         (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
+        ,(case when a.rwlx=0 then '重点工作' else '日常工作' end)gzlx
+        ,(case when e.sfwc=0 then '未完成' when e.sfwc=1 then '已完成' else '' end)wcqk
+        from rwdb_rwbxjsh a
+        left join
+         (select b.rwid,b.yhdm from rwdb_taskzrzt b where b.yhdm=#{yhdm})c on  c.rwid=a.gid
+           left join
+         (select d.rwid,d.yhdm,d.gid fkgid,d.sfwc,d.WCQKSM,d.sffk from rwdb_rwfk d)e
+         on e.rwid=a.gid  and e.yhdm=c.yhdm
+        where a.czzt=2 and nvl(e.sffk,0)=0
+	</select>
+    <update id="updateRwfk">
+        update RWDB_RWFK SET SFWC=#{sfwc},WCQKSM=#{wcqksm} where GID=#{fkgid}
+    </update>
+    <update id="rwfk">
+        update RWDB_RWFK SET SFFK=1 where GID=#{fkgid}
+    </update>
+    <insert id="saveRwfk">
+        insert into RWDB_RWFK(gid, rwid, yhdm, sfwc, wcqksm, cjsj)
+        values (#{fkgid}, #{rwid}, #{yhdm}, #{sfwc}, #{wcqksm}, sysdate)
+    </insert>
+</mapper>
