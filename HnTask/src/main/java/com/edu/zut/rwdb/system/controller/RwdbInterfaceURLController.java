@@ -20,5 +20,9 @@ public class RwdbInterfaceURLController {
     public String rwsh(){ return "page/rwdb/rwbxjsh/rwsh"; }
     @RequestMapping("/rwfk")
     public String rwfk(){ return "page/rwdb/rwfk/rwfk"; }
+    @RequestMapping("/jxkh")
+    public String jxkh(){ return "page/rwdb/jxkh/jxkh"; }
+    @RequestMapping("/jxkhcx")
+    public String jxkhcx(){ return "page/rwdb/jxkh/jxkhcx"; }
 
 }

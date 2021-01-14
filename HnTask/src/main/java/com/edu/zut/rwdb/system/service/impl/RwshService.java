@@ -21,7 +21,7 @@ import static com.edu.zut.rwdb.system.utils.AjaxResult.error;
 import static com.edu.zut.rwdb.system.utils.AjaxResult.success;
 
 @Service
-public class RwshService<RwMapper> implements IRwshService {
+public class RwshService implements IRwshService {
     private final Logger logger = LoggerFactory.getLogger(RwshService.class);
     @Autowired
     private RwshMapper rwshMapper;

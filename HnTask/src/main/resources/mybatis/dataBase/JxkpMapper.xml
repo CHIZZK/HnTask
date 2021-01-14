@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.zut.rwdb.system.mapper.JxkpMapper">
+
+	<select id="findData" resultType="java.util.Map">
+		 select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,a.cjr,
+        a.shr,c.yhdm,to_char(a.kssj,'yyyy-mm-dd')kssj,to_char(a.jssj,'yyyy-mm-dd')jssj,
+        e.fkgid,e.sfwc,e.wcqksm,g.khgid,g.pf,nvl(g.sftj,0)sftj,
+        (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)ZRZT,
+         (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
+        ,(case when a.rwlx=0 then '重点工作' else '日常工作' end)gzlx
+        ,(case when e.sfwc=0 then '未完成' when e.sfwc=1 then '已完成' else '' end)wcqk
+        from rwdb_rwbxjsh a
+        left join
+         (select b.rwid,b.yhdm from rwdb_taskzrzt b)c on  c.rwid=a.gid
+           left join
+         (select d.rwid,d.yhdm,d.gid fkgid,d.sfwc,d.WCQKSM,d.sffk from rwdb_rwfk d)e
+         on e.rwid=a.gid  and e.yhdm=c.yhdm
+          left join
+         (select f.rwid,f.yhdm,f.gid khgid,f.pf,f.sftj,f.pfr from RWDB_JXKH f)g
+         on g.rwid=a.gid  and g.yhdm=c.yhdm and g.pfr=a.cjr
+        where a.cjr=#{yhdm} and a.czzt=2 and nvl(e.sffk,0)=1 and to_char(a.jssj,'yyyy-mm')=#{wcsx}
+	</select>
+    <insert id="saveList">
+		insert into RWDB_JXKH(gid, rwid, yhdm, sftj, pf, pfr, cjsj)
+        values (#{gid}, #{rwid}, #{yhdm}, 0, #{pf}, #{pfr}, sysdate)
+	</insert>
+    <update id="updateList">
+        update RWDB_JXKH set PF=#{pf} where GID=#{khgid}
+    </update>
+    <update id="updateSftj">
+        update RWDB_JXKH set sftj=1 where GID=#{gid}
+    </update>
+
+    <select id="findJxcxData" resultType="java.util.Map">
+		 select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,a.cjr,
+        a.shr,c.yhdm,to_char(a.kssj,'yyyy-mm-dd')kssj,to_char(a.jssj,'yyyy-mm-dd')jssj,
+        e.fkgid,e.sfwc,e.wcqksm,g.khgid,g.pf,nvl(g.sftj,0)sftj,
+        (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)ZRZT,
+         (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
+        ,(case when a.rwlx=0 then '重点工作' else '日常工作' end)gzlx
+        ,(case when e.sfwc=0 then '未完成' when e.sfwc=1 then '已完成' else '' end)wcqk
+        from rwdb_rwbxjsh a
+        left join
+         (select b.rwid,b.yhdm from rwdb_taskzrzt b)c on  c.rwid=a.gid
+           left join
+         (select d.rwid,d.yhdm,d.gid fkgid,d.sfwc,d.WCQKSM,d.sffk from rwdb_rwfk d)e
+         on e.rwid=a.gid  and e.yhdm=c.yhdm
+          left join
+         (select f.rwid,f.yhdm,f.gid khgid,f.pf,f.sftj,f.pfr from RWDB_JXKH f)g
+         on g.rwid=a.gid  and g.yhdm=c.yhdm and g.pfr=a.cjr
+        where a.czzt=2 and nvl(e.sffk,0)=1 and to_char(a.jssj,'yyyy-mm')=#{wcsx}
+        and nvl(g.sftj,0)=1 and (c.yhdm=#{yhdm} or c.yhdm in (
+        <if test="postname!='' and postname!=null">
+            <if test="flag==1">
+                select x.yhdm from Rwdb_Xtyhxx x,rwdb_xtpost y,rwdb_postop z
+                where x.yhdm=z.yhdm and y.postid = z.postid and y.postname=#{postname}
+            </if>
+            <if test="flag==2">
+                select x.yhdm from Rwdb_Xtyhxx x,rwdb_xtpost y,rwdb_postop z
+                where x.yhdm=z.yhdm and y.postid = z.postid and y.postname=#{postname}
+                and (select u.compid from rwdb_unitdept u where u.yhdm=c.yhdm)=x.dwdm
+            </if>
+            <if test="flag==3">
+                select x.yhdm from Rwdb_Xtyhxx x,rwdb_xtpost y,rwdb_postop z,rwdb_unitdept u
+                where x.yhdm=z.yhdm and y.postid = z.postid and u.yhdm=x.yhdm
+                and y.postname=#{postname}
+                and (select u.dept from rwdb_unitdept u where u.yhdm=c.yhdm)=u.dept
+            </if>
+             <if test="flag==4">
+                 #{yhdm}
+            </if>
+        </if>
+        ))
+	</select>
+</mapper>

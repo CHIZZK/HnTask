@@ -5,15 +5,13 @@
 <mapper namespace="com.edu.zut.rwdb.system.mapper.RwjsMapper">
 
 	<select id="findData" resultType="java.util.Map">
-       select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,
+        select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,
         c.yhdm,to_char(a.kssj,'yyyy-mm-dd')kssj,to_char(a.jssj,'yyyy-mm-dd')jssj,
         (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)yhmc,
-         (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
+        (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
         ,(case when a.rwlx=0 then '重点工作' else '日常工作' end)gzlx
-        from rwdb_rwbxjsh a
-        left join
-         (select b.rwid,b.yhdm from rwdb_taskzrzt b where b.yhdm=6)c on  c.rwid=a.gid
-        where a.czzt=2
+        from rwdb_rwbxjsh a,rwdb_taskzrzt c where c.rwid=a.gid
+        and a.czzt=2 and c.yhdm=#{yhdm}
         <if test="gznr!='' and gznr!=null">
             and a.gznr like concat(concat('%', #{gznr}),'%')
         </if>

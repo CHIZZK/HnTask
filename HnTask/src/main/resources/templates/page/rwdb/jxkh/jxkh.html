@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>任务审核</title>
+    <title>绩效考评</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,18 +29,18 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
                 <li class="layui-nav-item"><a href="/com/edu/zut/rwdb/index">任务接收</a></li>
-                <li class="layui-nav-item layui-nav-itemed">
+                <li class="layui-nav-item ">
                     <a href="javascript:;">任务编写及审核</a>
                     <dl class="layui-nav-child">
                         <dd ><a href="/com/edu/zut/rwdb/rwbx">任务编写</a></dd>
-                        <dd><a href="/com/edu/zut/rwdb/rwsh"   class="layui-this">任务审核</a></dd>
+                        <dd><a href="/com/edu/zut/rwdb/rwsh">任务审核</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="/com/edu/zut/rwdb/rwfk">任务反馈</a></li>
-                <li class="layui-nav-item">
+                <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">绩效考核</a>
                     <dl class="layui-nav-child">
-                        <dd ><a href="/com/edu/zut/rwdb/jxkh">绩效考核</a></dd>
+                        <dd ><a href="/com/edu/zut/rwdb/jxkh" class="layui-this">绩效考核</a></dd>
                         <dd><a href="/com/edu/zut/rwdb/jxkhcx">绩效考核查询</a></dd>
                     </dl>
                 </li>
@@ -49,12 +49,22 @@
     </div>
     <!-- 内容主体区域开始 -->
     <div class="layui-body">
+        <!--查询开始-->
+        <div class="layui-form-item" style="padding-top: 20px">
+            <div class="layui-inline">
+                <label class="layui-form-label">完成时限</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="date" id="wcsx" lay-verify="date" placeholder="yyyy-MM" autocomplete="off" class="layui-input" readonly>
+                </div>
+            </div>
+        </div>
+        <!--查询结束-->
         <div>
             <table class="layui-hide" id="dataTable" lay-filter="data"></table>
             <script type="text/html" id="toolbar">
                 <div class="layui-btn-container">
-                    <button class="layui-btn layui-btn-sm" lay-event="rwxf">任务下发</button>
-                    <button class="layui-btn layui-btn-sm" lay-event="rwht">任务回退</button>
+                    <button class="layui-btn layui-btn-sm" lay-event="save_btn">保存</button>
+                    <button class="layui-btn layui-btn-sm" lay-event="sumit_btn">提交</button>
                 </div>
             </script>
         </div>
@@ -148,6 +158,6 @@
     <!--责任主体模态框 结束-->
 </div>
 <script th:src="@{/plugins/layui/layui.js}"></script>
-<script type="text/javascript" th:src="@{/js/rwdb/rwsh.js}"></script>
+<script type="text/javascript" th:src="@{/js/rwdb/jxkh.js}"></script>
 </body>
 </html>

@@ -5,20 +5,18 @@
 <mapper namespace="com.edu.zut.rwdb.system.mapper.RwfkMapper">
 
 	<select id="findData" resultType="java.util.Map">
-        select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,a.cjr,
+        select b.*,e.fkgid,e.sfwc,e.wcqksm,
+        (case when e.sfwc=0 then '未完成' when e.sfwc=1 then '已完成' else '' end)wcqk from
+        (select a.gid,a.rwly,a.gznr,a.gzbz,a.rwlx,a.czzt,a.cjr,
         a.shr,c.yhdm,to_char(a.kssj,'yyyy-mm-dd')kssj,to_char(a.jssj,'yyyy-mm-dd')jssj,
-        e.fkgid,e.sfwc,e.wcqksm,
         (select xsmc from rwdb_xtyhxx x where c.yhdm=x.yhdm)yhmc,
          (case when a.rwly=0 then '公司工作' when a.rwly=1 then '部门工作' else '个人工作' end)gzlb
         ,(case when a.rwlx=0 then '重点工作' else '日常工作' end)gzlx
-        ,(case when e.sfwc=0 then '未完成' when e.sfwc=1 then '已完成' else '' end)wcqk
-        from rwdb_rwbxjsh a
-        left join
-         (select b.rwid,b.yhdm from rwdb_taskzrzt b where b.yhdm=#{yhdm})c on  c.rwid=a.gid
+        from rwdb_rwbxjsh a, rwdb_taskzrzt c where c.rwid=a.gid and c.yhdm=#{yhdm})b
            left join
          (select d.rwid,d.yhdm,d.gid fkgid,d.sfwc,d.WCQKSM,d.sffk from rwdb_rwfk d)e
-         on e.rwid=a.gid  and e.yhdm=c.yhdm
-        where a.czzt=2 and nvl(e.sffk,0)=0
+         on e.rwid=b.gid  and e.yhdm=b.yhdm
+        where b.czzt=2 and nvl(e.sffk,0)=0
 	</select>
     <update id="updateRwfk">
         update RWDB_RWFK SET SFWC=#{sfwc},WCQKSM=#{wcqksm} where GID=#{fkgid}

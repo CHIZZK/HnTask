@@ -75,19 +75,21 @@ layui.use(['tree','element','carousel','laypage','layer','table','laydate'], fun
         var checkStatus = table.checkStatus(obj.config.id);
         switch(obj.event){
             case 'rwxf':
-                if (checkStatus.data.length == 0) {
-                    layer.alert('未选择数据。');
-                    return;
-                } else {
-                    var gid=[];
-                    for (var i=0;i<checkStatus.data.length;i++){
-                        gid.push(checkStatus.data[i].GID);
+                if (roleType!=0) {
+                    if (checkStatus.data.length == 0) {
+                        layer.alert('未选择数据。');
+                        return;
+                    } else {
+                        var gid=[];
+                        for (var i=0;i<checkStatus.data.length;i++){
+                            gid.push(checkStatus.data[i].GID);
+                        }
+                        var datas={
+                            gid:gid,
+                            rwzt:2
+                        };
+                        updateData(datas);
                     }
-                    var datas={
-                        gid:gid,
-                        rwzt:2
-                    };
-                    updateData(datas);
                 }
                 break;
             case 'rwht':
